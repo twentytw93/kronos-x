@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <addon id="service.kronos.signal"
+           name="Kronos Signal"
+           version="3.0.6"
+           provider-name="Kronos Team">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+        </requires>
+        <extension point="xbmc.service"
+                   library="service.py"/>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en">Minimal system status overlay during playback and home menu</summary>
+            <description lang="en">Kronos Signal Monitors CPU, RAM, Temp, and VPN — and it blinks, because something’s always moving. Built for Kronos and Paranoia isn’t a bug. It’s a feature.</description>
+            <platform>all</platform>
+            <assets>
+                <icon>https://raw.githubusercontent.com/twentytw93/kronos-x/main/k_logo.png</icon>
+            </assets>
+        </extension>
+    </addon>
+
+    <addon id="service.kronos.skinchanger" version="1.1.9" name="Kronos Skin Changer" provider-name="Kronos Team">
+        <extension point="xbmc.service" library="service.py">
+            <description>Kronos Skin Changer - Automatically adjusts skin color based on time of day</description>
+            <provides>service</provides>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <platform>all</platform>
+            <summary>Kronos Skin Changer</summary>
+            <description>Changes your entire Vibe based on time — light by day, dark by night, and full stealth after midnight. It’s automatic. It’s sexy. It’s the first of its kind inside Kodi.</description>
+            <license>MIT</license>
+            <language>en</language>
+            <assets>
+                <icon>https://raw.githubusercontent.com/twentytw93/kronos-x/main/k_logo.png</icon>
+            </assets>
+        </extension>
+    </addon>
+
+    <addon id="service.program.kronos.cave"
+           name="Kronos Cave - VPN Enforcer"
+           version="1.5.1"
+           provider-name="Kronos">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+        </requires>
+        <extension point="xbmc.service" library="service.py" start="startup"/>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en_GB">Military-Grade VPN Protection for LibreELEC</summary>
+            <description lang="en_GB">
+Enterprise-level WireGuard VPN enforcement with guaranteed leak prevention. Features a multi-layered kill-switch that blocks ALL traffic when VPN drops, while preserving local network access. Includes DNS & NTP leak protection, IPv6 blocking, and full privacy hardening.
+
+🔒 CORE PROTECTION:
+• Zero-leak guarantee: Blackholes all traffic when VPN is down
+• Smart kill-switch: Auto-stops streaming on VPN failure
+• LAN preservation: Local network remains accessible
+• Dead tunnel detection: Auto-reconnects stuck VPN connections
+• Endpoint route pinning: VPN server routes locked via WAN gateway
+
+🛡️ SECURITY FEATURES:
+• DNS leak prevention: Forces ALL DNS through VPN tunnel
+• NTP leak protection: Time sync only via VPN (no time drift)
+• IPv6 blocking: Defense-in-depth against IPv6 leaks
+• IP anonymization: All logs sanitized for privacy
+• Auto-config detection: Works with ConnMan WireGuard profiles
+
+⚡ PERFORMANCE:
+• Optimized for Raspberry Pi 5 / LibreELEC
+• Minimal system impact with intelligent caching
+• Auto-detects WireGuard configs in /storage/.config/wireguard/
+• Seamless integration with existing network setups
+
+⚠️ NOTE: This addon modifies system routing and firewall rules for absolute VPN security. Ensure you have SSH access for emergency recovery.
+            </description>
+            <disclaimer lang="en_GB">Modifies network routing and firewall rules. Local network access (SMB/NFS/UPnP) remains functional.</disclaimer>
+            <platform>all</platform>
+            <license>GPL-3.0</license>
+            <forum>https://forum.libreelec.tv/</forum>
+            <website>https://github.com/kronos-cave</website>
+            <source>https://github.com/kronos-cave</source>
+            <assets>
+                <icon>https://raw.githubusercontent.com/twentytw93/kronos-x/main/k_logo.png</icon>
+            </assets>
+        </extension>
+    </addon>
+
+    <addon id="service.kronos.eye" name="Kronos Eye" version="1.1.0" provider-name="YourName">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+        </requires>
+        <extension point="xbmc.service" library="service.py" start="startup"/>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en">Occult lunar and Saturn ingress notifications</summary>
+            <description lang="en">Kronos Eye quietly observes celestial events and delivers subtle notifications. It alerts you on the day of the full moon ("Step into the light") and whenever Saturn moves into a new zodiac sign – a moment traditionally associated with profound shifts. Perfect for those who follow the rhythms of the cosmos.</description>
+            <platform>all</platform>
+            <assets>
+                <icon>https://raw.githubusercontent.com/twentytw93/kronos-x/main/k_logo.png</icon>
+            </assets>
+        </extension>
+    </addon>
+
+    <addon id="plugin.program.kronos.mirror"
+           name="Kronos Mirror"
+           version="2.5.0"
+           provider-name="Kronos Team">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+        </requires>
+        <extension point="xbmc.python.pluginsource" library="default.py">
+            <reuselanguageinvoker>true</reuselanguageinvoker>
+            <provides>executable</provides>
+        </extension>
+        <extension point="xbmc.service" library="service.py" start="login"/>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en_GB">Mirror current Kodi playback over LAN using FFmpeg</summary>
+            <description lang="en_GB">
+Mirror current Kodi playback via FFmpeg as UDP MPEG-TS.
+
+FEATURES
+• Auto platform detection
+• Hardware encoding support
+• Source framerate preservation
+• LAN streaming via UDP/MPEG-TS
+• Auto restart on playback change
+• Safe shutdown and cleanup
+
+OPTIMIZED FOR
+• LibreELEC 12.x
+• Kodi 21 (Omega)
+• Raspberry Pi 4 / 5
+• 720p / 960p / 1080p output
+
+STABILITY
+• Shutdown race fixes
+• GPU readiness checks
+• Thread-safe startup
+• Encoder validation
+• Playback monitoring
+            </description>
+            <disclaimer lang="en_GB">
+[v2.5.0] Requires network connectivity and compatible receiver.
+Hardware encoding depends on platform support.
+            </disclaimer>
+            <platform>all</platform>
+            <license>GPL-3.0-or-later</license>
+            <source>https://github.com/twentytw93/KronosTeam</source>
+            <assets>
+                <icon>https://raw.githubusercontent.com/twentytw93/kronos-x/main/k_logo.png</icon>
+                <fanart>resources/media/background.jpg</fanart>
+            </assets>
+            <language>en_GB</language>
+            <language>en_US</language>
+            <minversion>21.0</minversion>
+        </extension>
+    </addon>
+
+    <addon id="service.kronos.thermo"
+           name="Kronos Thermo"
+           version="2.0.1"
+           provider-name="Kronos Team">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+        </requires>
+        <extension point="xbmc.service" library="service.py"/>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en_GB">Monitor Kronos Temps</summary>
+            <description lang="en_GB">Monitor Kronos CPU & GPU temperature and protect system at 85/95°C.
+            </description>
+            <platform>all</platform>
+            <license>GPL-3.0-or-later</license>
+            <assets>
+                <icon>https://raw.githubusercontent.com/twentytw93/kronos-x/main/k_logo.png</icon>
+            </assets>
+        </extension>
+    </addon>
+
+    <addon id="service.kronos.watchdog.ms" version="1.0.9" name="Kronos Watchdog Mp3-Streams" provider-name="Kronos Team">
+        <extension point="xbmc.service" library="service.py" />
+        <requires>
+            <import addon="xbmc.python" version="3.0.0" />
+        </requires>
+        <extension point="xbmc.addon.metadata">
+            <platform>all</platform>
+            <summary>Kronos Watchdog Mp3-Streams</summary>
+            <description>Pauses background playback when user is navigating to prevent Mp3-Streams crashes.</description>
+            <assets>
+                <icon>https://raw.githubusercontent.com/twentytw93/kronos-x/main/k_logo.png</icon>
+            </assets>
+        </extension>
+    </addon>
+
+    <addon id="service.kronos.watchdog.sc" version="1.0.9" name="Kronos Watchdog Soundcloud" provider-name="Kronos Team">
+        <extension point="xbmc.service" library="service.py" />
+        <requires>
+            <import addon="xbmc.python" version="3.0.0" />
+        </requires>
+        <extension point="xbmc.addon.metadata">
+            <platform>all</platform>
+            <summary>Kronos Watchdog Soundcloud</summary>
+            <description>Pauses background playback when user is navigating to prevent Soundcloud-Streams crashes.</description>
+            <assets>
+                <icon>https://raw.githubusercontent.com/twentytw93/kronos-x/main/k_logo.png</icon>
+            </assets>
+        </extension>
+    </addon>
+</addons>
